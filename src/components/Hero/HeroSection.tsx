@@ -144,7 +144,7 @@ const HeroSection: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
           >
-            ICELAND, CAPTURED
+            Endless Adventures. Infinite Stories
           </motion.div>
           <motion.p
             className="text-base sm:text-lg lg:text-xl font-light text-gray-200 leading-relaxed"
@@ -152,7 +152,7 @@ const HeroSection: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.6 }}
           >
-            EVERY TRAVELER. EVERY MOMENT. EVERY STORY.
+            March 20th to 30th.
           </motion.p>
         </motion.div>
 
@@ -163,7 +163,7 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 2 }}
         >
-          March 20th to 30th • Epic Pictures Guaranteed
+          Epic Pictures Guaranteed
         </motion.p>
 
         {/* CTA Buttons */}

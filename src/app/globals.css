@@ -236,3 +236,39 @@ body {
     transform: translateX(-60%) translateY(-40%) rotate(240deg);
   }
 }
+
+/* Navigation fixes for large screens */
+@media (min-width: 1400px) {
+  .nav-container-fix {
+    max-width: 100vw !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  
+  .nav-right-section {
+    margin-right: 0 !important;
+    padding-right: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1680px) {
+  .nav-container-fix {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+  
+  .nav-right-section {
+    padding-right: 2rem !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  .nav-container-fix {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+  
+  .nav-right-section {
+    padding-right: 2.5rem !important;
+  }
+}

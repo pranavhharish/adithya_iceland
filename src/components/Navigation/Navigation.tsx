@@ -114,8 +114,8 @@ const Navigation: React.FC = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full container-desktop">
-          <div className="relative lg:grid lg:grid-cols-3 items-center h-20 lg:h-24 w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-8 container-desktop nav-container-fix">
+          <div className="relative lg:flex lg:justify-between items-center h-20 lg:h-24 w-full max-w-none">
             
             {/* Left Navigation Items */}
             <div className="hidden lg:flex items-center justify-start gap-6 xl:gap-8">
@@ -138,7 +138,7 @@ const Navigation: React.FC = () => {
                   onError={(e) => {
                     // Fallback to text if image fails to load
                     e.currentTarget.style.display = 'none';
-                    const fallback = e.currentTarget.nextElementSibling;
+                    const fallback = e.currentTarget.nextElementSibling as HTMLElement;
                     if (fallback) fallback.style.display = 'block';
                   }}
                 />
@@ -149,7 +149,7 @@ const Navigation: React.FC = () => {
             </motion.div>
 
             {/* Right Navigation Items + Social Icons */}
-            <div className="hidden lg:flex items-center justify-end gap-6 xl:gap-8">
+            <div className="hidden lg:flex items-center justify-end gap-6 xl:gap-8 nav-right-section">
               {rightNavItems.map(renderNavItem)}
               
               {/* Social Icons */}

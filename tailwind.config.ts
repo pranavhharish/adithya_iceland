@@ -50,6 +50,9 @@ const config: Config = {
       backdropBlur: {
         xs: "2px",
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],

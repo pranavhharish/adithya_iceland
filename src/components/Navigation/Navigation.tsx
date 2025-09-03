@@ -13,9 +13,9 @@ interface NavItem {
 
 // Left side navigation items
 const leftNavItems: NavItem[] = [
-  { label: 'Adventure', href: '#hero', id: 'hero' },
+  { label: 'Adventure', href: '/', id: 'home' },
   { label: 'Itinerary', href: '#itinerary', id: 'itinerary' },
-  { label: 'Gallery', href: '#gallery', id: 'gallery' },
+  { label: 'Gallery', href: '/gallery', id: 'gallery' },
 ];
 
 // Right side navigation items
@@ -74,32 +74,59 @@ const Navigation: React.FC = () => {
     window.open('https://wa.me/917373076000', '_blank');
   };
 
-  const renderNavItem = (item: NavItem) => (
-    <button
-      key={item.id}
-      onClick={() => scrollToSection(item.id)}
-      className={`relative px-4 py-2 text-base xl:text-lg font-medium transition-all duration-300 group ${
-        activeSection === item.id
-          ? 'text-iceland-green'
-          : 'text-white hover:text-iceland-green'
-      }`}
-    >
-      <span className="relative z-10">{item.label}</span>
-      
-      {/* Elegant underline indicator */}
-      <motion.div
-        className={`absolute bottom-0 left-1/2 h-0.5 bg-iceland-green transition-all duration-300 ${
-          activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+  const renderNavItem = (item: NavItem) => {
+    const isExternalLink = item.href.startsWith('/');
+    
+    if (isExternalLink) {
+      return (
+        <a
+          key={item.id}
+          href={item.href}
+          className={`relative px-4 py-2 text-base xl:text-lg font-medium transition-all duration-300 group text-white hover:text-iceland-green`}
+        >
+          <span className="relative z-10">{item.label}</span>
+          
+          {/* Elegant underline indicator */}
+          <motion.div
+            className="absolute bottom-0 left-1/2 h-0.5 bg-iceland-green transition-all duration-300 w-0 group-hover:w-full"
+            style={{ transform: 'translateX(-50%)' }}
+          />
+          
+          {/* Subtle background on hover */}
+          <motion.div
+            className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          />
+        </a>
+      );
+    }
+
+    return (
+      <button
+        key={item.id}
+        onClick={() => scrollToSection(item.id)}
+        className={`relative px-4 py-2 text-base xl:text-lg font-medium transition-all duration-300 group ${
+          activeSection === item.id
+            ? 'text-iceland-green'
+            : 'text-white hover:text-iceland-green'
         }`}
-        style={{ transform: 'translateX(-50%)' }}
-      />
-      
-      {/* Subtle background on hover */}
-      <motion.div
-        className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-      />
-    </button>
-  );
+      >
+        <span className="relative z-10">{item.label}</span>
+        
+        {/* Elegant underline indicator */}
+        <motion.div
+          className={`absolute bottom-0 left-1/2 h-0.5 bg-iceland-green transition-all duration-300 ${
+            activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+          }`}
+          style={{ transform: 'translateX(-50%)' }}
+        />
+        
+        {/* Subtle background on hover */}
+        <motion.div
+          className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        />
+      </button>
+    );
+  };
 
   return (
     <>
@@ -245,34 +272,58 @@ const Navigation: React.FC = () => {
                 {/* Navigation Tabs */}
                 <div className="flex-1 py-20 px-10">
                   <nav className="space-y-6">
-                    {allNavItems.map((item, index) => (
-                      <motion.button
-                        key={item.id}
-                        onClick={() => scrollToSection(item.id)}
-                        className={`group relative w-full text-left px-8 py-8 my-3 transition-all duration-300 rounded-xl ${
-                          activeSection === item.id
-                            ? 'bg-white text-black border-l-4 border-iceland-green shadow-lg'
-                            : 'text-white hover:bg-white hover:text-black border-l-4 border-transparent hover:border-iceland-green hover:shadow-md'
-                        }`}
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 * index + 0.4 }}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="font-semibold text-xl tracking-wide">
-                            {item.label}
-                          </span>
-                          {activeSection === item.id && (
-                            <motion.div
-                              className="w-3 h-3 rounded-full bg-iceland-green"
-                              initial={{ scale: 0 }}
-                              animate={{ scale: 1 }}
-                              transition={{ type: 'spring', stiffness: 500 }}
-                            />
-                          )}
-                        </div>
-                      </motion.button>
-                    ))}
+                    {allNavItems.map((item, index) => {
+                      const isExternalLink = item.href.startsWith('/');
+                      
+                      if (isExternalLink) {
+                        return (
+                          <motion.a
+                            key={item.id}
+                            href={item.href}
+                            className="group relative w-full text-left px-8 py-8 my-3 transition-all duration-300 rounded-xl text-white hover:bg-white hover:text-black border-l-4 border-transparent hover:border-iceland-green hover:shadow-md block"
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index + 0.4 }}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <div className="flex items-center justify-between">
+                              <span className="font-semibold text-xl tracking-wide">
+                                {item.label}
+                              </span>
+                            </div>
+                          </motion.a>
+                        );
+                      }
+
+                      return (
+                        <motion.button
+                          key={item.id}
+                          onClick={() => scrollToSection(item.id)}
+                          className={`group relative w-full text-left px-8 py-8 my-3 transition-all duration-300 rounded-xl ${
+                            activeSection === item.id
+                              ? 'bg-white text-black border-l-4 border-iceland-green shadow-lg'
+                              : 'text-white hover:bg-white hover:text-black border-l-4 border-transparent hover:border-iceland-green hover:shadow-md'
+                          }`}
+                          initial={{ opacity: 0, x: 50 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.1 * index + 0.4 }}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-semibold text-xl tracking-wide">
+                              {item.label}
+                            </span>
+                            {activeSection === item.id && (
+                              <motion.div
+                                className="w-3 h-3 rounded-full bg-iceland-green"
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{ type: 'spring', stiffness: 500 }}
+                              />
+                            )}
+                          </div>
+                        </motion.button>
+                      );
+                    })}
                   </nav>
                 </div>
 

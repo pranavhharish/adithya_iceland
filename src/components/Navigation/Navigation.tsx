@@ -14,14 +14,14 @@ interface NavItem {
 // Left side navigation items
 const leftNavItems: NavItem[] = [
   { label: 'Adventure', href: '/', id: 'home' },
-  { label: 'Itinerary', href: '#itinerary', id: 'itinerary' },
+  { label: 'Itinerary', href: '/itinerary', id: 'itinerary' },
   { label: 'Gallery', href: '/gallery', id: 'gallery' },
 ];
 
 // Right side navigation items
 const rightNavItems: NavItem[] = [
-  { label: 'About', href: '#about', id: 'about' },
-  { label: 'Pricing', href: '#pricing', id: 'pricing' },
+  { label: 'About', href: '/about', id: 'about' },
+  { label: 'Pricing', href: '/pricing', id: 'pricing' },
 ];
 
 // All items for mobile menu

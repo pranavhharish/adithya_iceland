@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Footer from "@/components/Footer/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,11 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="w-full overflow-x-hidden">
       <body
-        className={`${inter.variable} ${playfairDisplay.variable} font-sans antialiased bg-iceland-dark text-white w-full min-h-screen`}
+        className={`${inter.variable} ${playfairDisplay.variable} font-sans antialiased bg-iceland-dark text-white w-full min-h-screen flex flex-col overflow-x-hidden`}
       >
-        {children}
+        <main className="flex-1 w-full">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

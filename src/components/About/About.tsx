@@ -39,15 +39,12 @@ const About: React.FC = () => {
                   <div className="relative">
                     <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
                       <Image
-                        src="/images/photo1.jpg"
+                        src="/images/aboutme/profile.jpg"
                         alt="Aditya Subramanian - Adventure Photographer"
                         fill
                         className="object-cover"
                       />
                     </div>
-                    {/* Decorative elements */}
-                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-400 rounded-full opacity-60" />
-                    <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-emerald-400 rounded-full opacity-40" />
                   </div>
                 </motion.div>
 

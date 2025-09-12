@@ -142,7 +142,7 @@ const PricingPage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 font-playfair leading-tight"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold mb-6 font-playfair leading-tight"
           >
             JOIN THE ULTIMATE
             <span className="block bg-gradient-to-r from-amber-600 via-orange-500 to-amber-700 bg-clip-text text-transparent">
@@ -245,7 +245,7 @@ const PricingPage: React.FC = () => {
         <div className="max-w-none w-full relative z-10 flex flex-col items-center desktop-centered">
           <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 container-desktop">
             {/* Section Header - What's Included */}
-            <motion.div
+            {/* <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 30 }}
               animate={contentInView ? { opacity: 1, y: 0 } : {}}
@@ -261,24 +261,20 @@ const PricingPage: React.FC = () => {
                 <span className="block">& What's Not</span>
               </motion.h2>
               
-              <motion.p
-                className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-                initial={{ opacity: 0 }}
-                animate={contentInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                Everything you need for an epic Iceland photography adventure
-              </motion.p>
-            </motion.div>
+            </motion.div> */}
+
+            {/* Top spacer for visual breathing room */}
+            <div className="h-20 lg:h-28"></div>
 
             {/* Inclusions & Exclusions Grid */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
+            <div className="w-full flex justify-center">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 max-w-4xl w-full px-4">
               {/* Inclusions */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6"
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl py-8 px-6 flex-1 max-w-sm"
               >
                 <div className="flex items-center gap-3 mb-8">
                   <div className="bg-iceland-green p-3 rounded-full">
@@ -287,7 +283,7 @@ const PricingPage: React.FC = () => {
                   <h3 className="text-2xl sm:text-3xl font-bold text-iceland-green">What's Included</h3>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {inclusions.map((item, index) => (
                     <motion.div
                       key={index}
@@ -297,7 +293,7 @@ const PricingPage: React.FC = () => {
                       className="flex items-start gap-3 group"
                     >
                       <Check className="w-5 h-5 text-iceland-green mt-1 flex-shrink-0" />
-                      <span className="text-gray-200 group-hover:text-white transition-colors text-lg">
+                      <span className="text-gray-200 group-hover:text-white transition-colors text-lg font-semibold">
                         {item}
                       </span>
                     </motion.div>
@@ -310,7 +306,7 @@ const PricingPage: React.FC = () => {
                 initial={{ opacity: 0, x: 50 }}
                 animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6"
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl py-8 px-6 flex-1 max-w-sm"
               >
                 <div className="flex items-center gap-3 mb-8">
                   <div className="bg-red-500 p-3 rounded-full">
@@ -319,7 +315,7 @@ const PricingPage: React.FC = () => {
                   <h3 className="text-2xl sm:text-3xl font-bold text-red-400">What's Not Included</h3>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {exclusions.map((item, index) => (
                     <motion.div
                       key={index}
@@ -329,16 +325,37 @@ const PricingPage: React.FC = () => {
                       className="flex items-start gap-3 group"
                     >
                       <X className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
-                      <span className="text-gray-200 group-hover:text-white transition-colors text-lg">
+                      <span className="text-gray-200 group-hover:text-white transition-colors text-lg font-semibold">
                         {item}
                       </span>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="mt-8 p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                  <p className="text-gray-200 text-sm">
-                    <strong>Need help with flights or visas?</strong> We can connect you with our travel partners for competitive rates.
+              </motion.div>
+              </div>
+            </div>
+
+            {/* Spacer for visual separation */}
+            <div className="h-24 lg:h-32"></div>
+
+            {/* Travel Partners Section */}
+            <div className="w-full flex justify-center mb-24">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={contentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="max-w-3xl w-full px-4"
+              >
+                <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 backdrop-blur-sm border border-amber-400/20 rounded-xl p-8 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-6">
+                    <div className="bg-amber-500/20 p-3 rounded-full">
+                      <AlertCircle className="w-6 h-6 text-amber-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-amber-400">Need Additional Support?</h3>
+                  </div>
+                  <p className="text-xl text-gray-200 leading-relaxed">
+                    <span className="font-semibold text-amber-300">Need help with flights or visas?</span> We can connect you with our travel partners for competitive rates and hassle-free booking assistance.
                   </p>
                 </div>
               </motion.div>
@@ -370,15 +387,10 @@ const PricingPage: React.FC = () => {
                 FAQ
               </motion.h2>
               
-              <motion.p
-                className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-                initial={{ opacity: 0 }}
-                animate={faqInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                Everything you need to know about your Iceland adventure
-              </motion.p>
             </motion.div>
+
+            {/* Spacer for visual separation */}
+            <div className="h-16 lg:h-20"></div>
 
             {/* FAQ Content - Following Itinerary Pattern */}
             <div className="w-full flex flex-col items-center">

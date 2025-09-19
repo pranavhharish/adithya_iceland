@@ -80,9 +80,9 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-iceland-dark flex items-center justify-center desktop-centered">
+    <section className="relative md:h-screen w-full md:overflow-hidden bg-iceland-dark flex items-center justify-center desktop-centered">
       {/* Background Images with Parallax */}
-      <div className="absolute inset-0">
+      <div className="relative md:absolute md:inset-0 w-full aspect-video bg-black">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
@@ -90,7 +90,7 @@ const HeroSection: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="relative h-full w-full"
+            className="relative w-full h-full"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -99,7 +99,7 @@ const HeroSection: React.FC = () => {
               alt={heroImages[currentImageIndex].alt}
               fill
               priority={currentImageIndex < 3}
-              className="object-cover transition-transform duration-[8s] ease-out hover:scale-105"
+              className="md:object-cover object-contain object-center transition-transform duration-[8s] ease-out hover:scale-105"
               sizes="100vw"
             />
             
@@ -122,7 +122,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Main Content - Bottom Right Corner */}
-      <div className="absolute bottom-8 right-4 sm:right-8 text-right z-10 max-w-2xl">
+      <div className="absolute bottom-3 md:bottom-8 right-3 md:right-4 sm:right-8 text-right z-10 max-w-[85%] md:max-w-2xl">
         {/* Main Headline */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -131,7 +131,7 @@ const HeroSection: React.FC = () => {
           className="mb-6"
         >
           <motion.h1 
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-white mb-3 tracking-tight"
+            className="text-xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-white mb-1.5 md:mb-3 tracking-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.8 }}
@@ -139,7 +139,7 @@ const HeroSection: React.FC = () => {
             Where Fire Meets Ice
           </motion.h1>
           <motion.div
-            className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-display text-iceland-green mb-2"
+            className="text-base sm:text-2xl lg:text-3xl xl:text-4xl font-display text-iceland-green mb-1 md:mb-2"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
@@ -147,7 +147,7 @@ const HeroSection: React.FC = () => {
             Endless Adventures. Infinite Stories
           </motion.div>
           <motion.p
-            className="text-base sm:text-lg lg:text-xl font-light text-gray-200 leading-relaxed"
+            className="text-xs sm:text-lg lg:text-xl font-light text-gray-200 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.6 }}
@@ -174,7 +174,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 1, delay: 2.4 }}
         >
           <motion.button
-            className="group relative px-6 py-3 bg-gradient-to-r from-iceland-green to-teal-400 text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-iceland-green/25"
+            className="group relative px-3 md:px-6 py-1.5 md:py-3 bg-gradient-to-r from-iceland-green to-teal-400 text-white text-xs md:text-base font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-iceland-green/25"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -228,15 +228,15 @@ const HeroSection: React.FC = () => {
 
       {/* Image Information Card - Keep in bottom left */}
       <motion.div
-        className="absolute bottom-8 left-4 sm:left-8 p-4 rounded-2xl text-white max-w-xs"
+        className="absolute bottom-3 md:bottom-8 left-3 md:left-4 sm:left-8 p-2 md:p-4 rounded-xl md:rounded-2xl text-white max-w-[40%] md:max-w-xs"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 3.2 }}
       >
-        <h3 className="font-semibold text-lg mb-1">
+        <h3 className="font-semibold text-sm md:text-lg mb-0.5 md:mb-1">
           {heroImages[currentImageIndex].title}
         </h3>
-        <p className="text-gray-300 text-sm">
+        <p className="text-gray-300 text-xs md:text-sm">
           {heroImages[currentImageIndex].location}
         </p>
       </motion.div>

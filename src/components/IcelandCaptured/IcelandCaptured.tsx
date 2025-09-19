@@ -8,7 +8,7 @@ const IcelandCaptured: React.FC = () => {
   return (
     <section className="relative w-full">
       {/* Text Section */}
-      <div className="w-full bg-gradient-to-br from-iceland-dark via-gray-900 to-black py-4 md:py-[10vh]">
+      <div className="w-full bg-gradient-to-br from-iceland-dark via-gray-900 to-black py-12 md:py-[10vh]">
         <div className="w-full flex justify-center">
           <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 ">
             <div className="flex flex-col items-center justify-center text-center space-y-2 sm:space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20">

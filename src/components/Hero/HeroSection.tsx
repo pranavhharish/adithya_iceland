@@ -183,8 +183,8 @@ const HeroSection: React.FC = () => {
           </motion.button>
         </motion.div>
 
-        {/* Mobile Navigation Controls - Below CTA Buttons */}
-        <div className="sm:hidden flex flex-col items-end space-y-4">
+        {/* Mobile Navigation Controls - Hidden on Mobile */}
+        <div className="hidden">
           {/* Image Navigation Dots */}
           <motion.div
             className="flex space-x-3"
@@ -241,47 +241,47 @@ const HeroSection: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* Navigation Controls - Centered Bottom, Stacked Above Scroll Indicator (Desktop Only) */}
-      <div className="hidden sm:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center space-y-4 z-10">
-        
-        {/* Image Navigation Dots */}
-        <motion.div
-          className="flex space-x-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2.8 }}
-        >
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleImageClick(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentImageIndex
-                  ? 'bg-iceland-green scale-125'
-                  : 'bg-white/50 hover:bg-white/80'
-              }`}
-            />
-          ))}
-        </motion.div>
+        {/* Navigation Controls - Centered Bottom, Only on Desktop/Tablet */}
+        <div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center space-y-4 z-10">
+          
+          {/* Image Navigation Dots */}
+          <motion.div
+            className="flex space-x-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 2.8 }}
+          >
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleImageClick(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentImageIndex
+                    ? 'bg-iceland-green scale-125'
+                    : 'bg-white/50 hover:bg-white/80'
+                }`}
+              />
+            ))}
+          </motion.div>
 
-        {/* Play/Pause Control */}
-        <motion.button
-          onClick={handlePlayPause}
-          className="group flex items-center space-x-2 px-4 py-2 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 3 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          {isPlaying ? (
-            <Pause className="w-4 h-4" />
-          ) : (
-            <Play className="w-4 h-4" />
-          )}
-          <span className="text-sm font-medium">
-            {isPlaying ? 'Pause' : 'Play'}
-          </span>
-        </motion.button>
+          {/* Play/Pause Control */}
+          <motion.button
+            onClick={handlePlayPause}
+            className="group flex items-center space-x-2 px-4 py-2 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 3 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            {isPlaying ? (
+              <Pause className="w-4 h-4" />
+            ) : (
+              <Play className="w-4 h-4" />
+            )}
+            <span className="text-sm font-medium">
+              {isPlaying ? 'Pause' : 'Play'}
+            </span>
+          </motion.button>
 
         {/* Scroll Indicator */}
         <motion.div

@@ -216,20 +216,20 @@ const ItineraryPage: React.FC = () => {
             </div>
 
             {/* Mobile Layout */}
-            <div className="lg:hidden w-full max-w-lg">
+            <div className="lg:hidden w-full flex flex-col items-center">
               {/* Header Box */}
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center" style={{ marginBottom: '20px' }}>
+              <div className="w-[90%] bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center" style={{ marginBottom: '20px' }}>
                 <h2 className="text-2xl font-bold text-white tracking-wider">
                   DAILY ITINERARY
                 </h2>
               </div>
 
               {/* Mobile Cards with Clear Spacing */}
-              <div>
+              <div className="w-full flex flex-col items-center">
                 {itineraryData.map((item, index) => (
                   <div
                     key={index}
-                    className={`rounded-2xl p-6 backdrop-blur-sm transition-all duration-300 min-h-[120px] flex flex-col justify-center`}
+                    className={`w-[90%] rounded-2xl p-6 backdrop-blur-sm transition-all duration-300 min-h-[120px] flex flex-col justify-center`}
                     style={{ 
                       backgroundColor: `rgba(255, 255, 255, ${0.15 + (index * 0.02)})`,
                       marginBottom: '20px'
@@ -270,60 +270,63 @@ const ItineraryPage: React.FC = () => {
         </div>
 
         {/* Content Section Below Image */}
-        <div className="w-full bg-gradient-to-br from-iceland-dark via-gray-900 to-black py-20 lg:py-32">
-          <div className="w-full flex justify-center">
-            <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col items-center justify-center text-center space-y-12 lg:space-y-16">
-                
+        <div className="w-full bg-gradient-to-br from-iceland-dark via-gray-900 to-black py-32 lg:py-48">
+          <div className="flex flex-col items-center justify-center min-h-[60vh] gap-16 lg:gap-20">
+            {/* First Container - Title and Stats */}
+            <div className="w-[90%] md:w-full max-w-7xl">
+              <div className="flex flex-col items-center justify-center text-center space-y-8 lg:space-y-16 bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-md py-16 md:py-20 lg:py-24 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-saturate-[180%]">
                 {/* Title */}
-                <div className="w-full flex justify-center">
-                  <h2 className="text-4xl lg:text-5xl font-bold text-white tracking-wider text-center">
+                <div className="w-[90%] md:w-full">
+                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white tracking-wider text-center">
                     UNLEASH YOUR SPIRIT OF ADVENTURE
                   </h2>
                 </div>
                 
                 {/* Stats */}
-                <div className="w-full flex justify-center">
-                  <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-32">
+                <div className="w-[90%] md:w-full">
+                  <div className="flex flex-row items-center justify-center gap-8 sm:gap-16 lg:gap-32">
                     <div className="text-center">
-                      <div className="text-8xl lg:text-9xl font-bold text-white mb-4">
+                      <div className="text-5xl sm:text-6xl lg:text-9xl font-bold text-white mb-2 lg:mb-4">
                         3
                       </div>
-                      <div className="text-xl lg:text-2xl text-white font-bold tracking-wider">
+                      <div className="text-sm sm:text-lg lg:text-2xl text-white font-bold tracking-wider">
                         CARS
                       </div>
                     </div>
                     
                     <div className="text-center">
-                      <div className="text-8xl lg:text-9xl font-bold text-white mb-4">
+                      <div className="text-5xl sm:text-6xl lg:text-9xl font-bold text-white mb-2 lg:mb-4">
                         12
                       </div>
-                      <div className="text-xl lg:text-2xl text-white font-bold tracking-wider">
+                      <div className="text-sm sm:text-lg lg:text-2xl text-white font-bold tracking-wider">
                         TRAVELLERS
                       </div>
                     </div>
                     
                     <div className="text-center">
-                      <div className="text-8xl lg:text-9xl font-bold text-white mb-4">
+                      <div className="text-5xl sm:text-6xl lg:text-9xl font-bold text-white mb-2 lg:mb-4">
                         1
                       </div>
-                      <div className="text-xl lg:text-2xl text-white font-bold tracking-wider">
+                      <div className="text-sm sm:text-lg lg:text-2xl text-white font-bold tracking-wider">
                         STUNNING<br/>ROAD TRIP
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                {/* Description */}
-                <div className="w-full flex justify-center">
-                  <p className="text-lg lg:text-xl text-gray-200 max-w-5xl mx-auto leading-relaxed text-center">
+            {/* Second Container - Description */}
+            <div className="w-[90%] md:w-full max-w-7xl">
+              <div className="flex flex-col items-center justify-center text-center bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-md py-16 md:py-20 lg:py-24 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-saturate-[180%]">
+                <div className="w-[90%] md:w-full">
+                  <p className="text-sm sm:text-base lg:text-xl text-gray-200 leading-relaxed text-center">
                     Iceland is best explored by car, and we will be traveling the entire country along the Ring Road. Prepare to be amazed by 
                     the dramatic landscape, from volcanic waterfalls to glacial lagoons, and breathtaking scenery. Get your playlist 
                     ready for one of the most incredible drives you'll ever experience! We will be exploring the country by three 4x4 SUV's 
                     with 4 people sharing a car for maximum comfort on the road trip.
                   </p>
                 </div>
-
               </div>
             </div>
           </div>
@@ -349,26 +352,28 @@ const ItineraryPage: React.FC = () => {
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-black/30" />
             
-            {/* Title Section - Positioned at Top */}
-            <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 pt-8 sm:pt-12 lg:pt-16 flex justify-center">
-              <div className="text-center">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white tracking-wider">
-                  TRIP HIGHLIGHTS
-                </h2>
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mt-2 sm:mt-4">
-                  Embark on an unforgettable journey through Iceland's most iconic and awe-inspiring landscapes.
-                </p>
+            {/* Title Section - Positioned at Top with proper spacing */}
+            <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 pt-8 sm:pt-12 lg:pt-20 xl:pt-32 flex justify-center">
+              <div className="flex flex-col items-center justify-center min-h-[20vh] lg:min-h-[40vh]">
+                <div className="text-center">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white tracking-wider">
+                    TRIP HIGHLIGHTS
+                  </h2>
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mt-2 sm:mt-4">
+                    Embark on an unforgettable journey through Iceland's most iconic and awe-inspiring landscapes.
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Highlights Content - Positioned in Center/Lower Area */}
-            <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 flex items-center justify-center" style={{ paddingTop: '120px' }}>
+            <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 flex items-center justify-center pt-4 sm:pt-8 lg:pt-20 xl:pt-32">
               <div className="w-full flex flex-col items-center max-w-6xl">
 
                 {/* Highlights Grid - Desktop: Grid, Mobile: Dropdown */}
-                <div className="w-full max-w-4xl">
+                <div className="w-full flex flex-col items-center">
                   {/* Desktop Grid Layout */}
-                  <div className="hidden lg:grid grid-cols-2 gap-6">
+                  <div className="hidden lg:grid grid-cols-2 gap-6 w-[90%] md:w-full">
                     {tripHighlights.map((highlight, index) => (
                       <div
                         key={index}
@@ -391,10 +396,12 @@ const ItineraryPage: React.FC = () => {
                   </div>
 
                   {/* Mobile Dropdown Layout */}
-                  <div className="lg:hidden space-y-3">
-                    {tripHighlights.map((highlight, index) => (
-                      <MobileHighlightCard key={index} highlight={highlight} index={index} />
-                    ))}
+                  <div className="lg:hidden space-y-3 w-full flex flex-col items-center">
+                    <div className="w-[90%]">
+                      {tripHighlights.map((highlight, index) => (
+                        <MobileHighlightCard key={index} highlight={highlight} index={index} />
+                      ))}
+                    </div>
                   </div>
                 </div>
 

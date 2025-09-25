@@ -373,18 +373,17 @@ const ItineraryPage: React.FC = () => {
                 {/* Highlights Grid - Desktop: Grid, Mobile: Dropdown */}
                 <div className="w-full flex flex-col items-center">
                   {/* Desktop Grid Layout */}
-                  <div className="hidden lg:grid grid-cols-2 gap-6 w-[90%] md:w-full">
+                  <div className="hidden lg:grid grid-cols-2 gap-6 w-[90%] md:w-full mt-8">
                     {tripHighlights.map((highlight, index) => (
                       <div
                         key={index}
-                        className="rounded-xl p-6 backdrop-blur-sm transition-all duration-300 hover:scale-102"
+                        className="rounded-xl p-4 lg:p-6 backdrop-blur-sm transition-all duration-300 hover:scale-102 h-40 xl:h-48 flex items-center justify-center"
                         style={{ 
-                          backgroundColor: `rgba(255, 255, 255, ${0.12 + (index * 0.01)})`,
-                          marginBottom: '8px'
+                          backgroundColor: `rgba(255, 255, 255, ${0.12 + (index * 0.01)})`
                         }}
                       >
-                        <div className="text-center space-y-3">
-                          <h3 className="text-lg lg:text-xl font-bold text-white tracking-wider">
+                        <div className="text-center">
+                          <h3 className="text-lg lg:text-xl font-bold text-white tracking-wider mb-3">
                             {highlight.title}
                           </h3>
                           <p className="text-sm md:text-base text-gray-200 leading-relaxed">

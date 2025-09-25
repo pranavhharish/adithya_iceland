@@ -268,71 +268,70 @@ const PricingPage: React.FC = () => {
 
             {/* Inclusions & Exclusions Grid */}
             <div className="w-full flex justify-center">
-              <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 max-w-4xl w-full px-4">
-              {/* Inclusions */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl py-8 px-6 flex-1 max-w-sm"
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="bg-iceland-green p-3 rounded-full">
-                    <Check className="w-6 h-6 text-white" />
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 max-w-4xl">
+                {/* Inclusions */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl py-8 px-6 flex-1 max-w-sm"
+                >
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="bg-iceland-green p-3 rounded-full">
+                      <Check className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-iceland-green">What's Included</h3>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-iceland-green">What's Included</h3>
-                </div>
-                
-                <div className="space-y-3">
-                  {inclusions.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                      className="flex items-start gap-3 group"
-                    >
-                      <Check className="w-5 h-5 text-iceland-green mt-1 flex-shrink-0" />
-                      <span className="text-gray-200 group-hover:text-white transition-colors text-lg font-semibold">
-                        {item}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Exclusions */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl py-8 px-6 flex-1 max-w-sm"
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="bg-red-500 p-3 rounded-full">
-                    <X className="w-6 h-6 text-white" />
+                  
+                  <div className="space-y-3">
+                    {inclusions.map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                        transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                        className="flex items-start gap-3 group"
+                      >
+                        <Check className="w-5 h-5 text-iceland-green mt-1 flex-shrink-0" />
+                        <span className="text-gray-200 group-hover:text-white transition-colors text-lg font-semibold">
+                          {item}
+                        </span>
+                      </motion.div>
+                    ))}
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-red-400">What's Not Included</h3>
-                </div>
-                
-                <div className="space-y-3">
-                  {exclusions.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                      transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                      className="flex items-start gap-3 group"
-                    >
-                      <X className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
-                      <span className="text-gray-200 group-hover:text-white transition-colors text-lg font-semibold">
-                        {item}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
+                </motion.div>
 
-              </motion.div>
+                {/* Exclusions */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl py-8 px-6 flex-1 max-w-sm"
+                >
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="bg-red-500 p-3 rounded-full">
+                      <X className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-red-400">What's Not Included</h3>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    {exclusions.map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={contentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                        transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                        className="flex items-start gap-3 group"
+                      >
+                        <X className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
+                        <span className="text-gray-200 group-hover:text-white transition-colors text-lg font-semibold">
+                          {item}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
               </div>
             </div>
 
@@ -345,7 +344,7 @@ const PricingPage: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={contentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="max-w-3xl w-full px-4"
+                className="max-w-3xl w-[90%] px-4 lg:w-full"
               >
                 <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 backdrop-blur-sm border border-amber-400/20 rounded-xl p-8 text-center">
                   <div className="flex items-center justify-center gap-3 mb-6">
@@ -433,7 +432,7 @@ const PricingPage: React.FC = () => {
               </div>
 
               {/* FAQ Content - Mobile Layout (Dropdown Style) */}
-              <div className="lg:hidden w-full max-w-lg mx-auto">
+              <div className="lg:hidden w-[90%] max-w-lg mx-auto">
                 {/* Mobile Header Box */}
                 <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center mb-5">
                   <h2 className="text-2xl font-bold text-white tracking-wider">

@@ -252,68 +252,69 @@ const MasonryGallery: React.FC = () => {
 
   return (
     <section id="gallery" className="min-h-screen w-full bg-gradient-to-b from-iceland-dark to-black">
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-        {/* Section Header - Ensuring no overlap with fixed navigation */}
-        <motion.div
-          className="text-center gallery-safe-top"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 
-            className="text-4xl lg:text-6xl font-bold text-white" 
-            style={{ marginBottom: '2rem' }}
+      {/* Spacer to push content below navigation */}
+      <div className="h-24 lg:h-32"></div>
+      <div className="w-full flex justify-center">
+        <div className="w-[90%] max-w-6xl">
+          {/* Section Header - Ensuring no overlap with fixed navigation */}
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            Gallery
-          </h2>
-        </motion.div>
+            <h2 
+              className="text-4xl lg:text-6xl font-bold text-white mb-8"
+            >
+              Gallery
+            </h2>
+          </motion.div>
 
-        {/* Spacer for clear separation */}
-        <div className="h-8 lg:h-12 xl:h-14"></div>
+          {/* Spacer for clear separation */}
+          <div className="h-8 lg:h-12 xl:h-14"></div>
 
-        {/* Masonry Grid - Full width with perfect centering */}
-        <motion.div
-          className="gallery-centered"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, staggerChildren: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <div className="gallery-container">
-            <div className="columns-2 lg:columns-3 masonry-gallery">
+          {/* Masonry Grid - Properly centered and spaced */}
+          <motion.div
+            className="w-full"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, staggerChildren: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div className="columns-2 lg:columns-3 gap-4 lg:gap-6">
               {galleryImages.map((image, index) => (
                 <motion.div
                   key={index}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer break-inside-avoid mb-6 lg:mb-8"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   onClick={() => openLightbox(index)}
                 >
-                <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                  <Image
-                    src={image.url}
-                    alt={image.caption}
-                    width={400}
-                    height={600}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 1024px) 50vw, 33vw"
-                  />
-                  
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-end">
-                    <div className="p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <p className="font-medium text-sm">{image.caption}</p>
+                  <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <Image
+                      src={image.url}
+                      alt={image.caption}
+                      width={400}
+                      height={600}
+                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 50vw, 33vw"
+                    />
+                    
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-end">
+                      <div className="p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <p className="font-medium text-sm">{image.caption}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
               ))}
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Lightbox Modal */}

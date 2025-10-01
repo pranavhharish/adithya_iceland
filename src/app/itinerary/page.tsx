@@ -326,7 +326,7 @@ const ItineraryPage: React.FC = () => {
                   <p className="text-sm sm:text-base lg:text-xl text-gray-200 leading-relaxed text-center">
                     Iceland is best explored by car, and we will be traveling the entire country along the Ring Road. Prepare to be amazed by 
                     the dramatic landscape, from volcanic waterfalls to glacial lagoons, and breathtaking scenery. Get your playlist 
-                    ready for one of the most incredible drives you'll ever experience! We will be exploring the country by three 4x4 SUV's 
+                    ready for one of the most incredible drives you&apos;ll ever experience! We will be exploring the country by three 4x4 SUV&apos;s 
                     with 4 people sharing a car for maximum comfort on the road trip.
                   </p>
                 </div>
@@ -365,7 +365,7 @@ const ItineraryPage: React.FC = () => {
                     TRIP HIGHLIGHTS
                   </h2>
                   <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mt-2 sm:mt-4">
-                    Embark on an unforgettable journey through Iceland's most iconic and awe-inspiring landscapes.
+                    Embark on an unforgettable journey through Iceland&apos;s most iconic and awe-inspiring landscapes.
                   </p>
                 </div>
               </div>

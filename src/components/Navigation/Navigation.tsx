@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, Instagram } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+// Removed unused Link import
 import { usePathname, useRouter } from 'next/navigation';
 
 interface NavItem {

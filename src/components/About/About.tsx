@@ -38,7 +38,7 @@ const AboutContent: React.FC<{ textSizeClass?: string }> = ({ textSizeClass = "t
         className="bg-transparent rounded-xl p-3 md:p-8"
       >
         <p className={`text-gray-300 leading-relaxed ${textSizeClass} font-sans`}>
-          Since then, one such adventure has turned into multiple successful group explorations in the past three years. Every trip is less about traveling; it's about connecting—to the landscapes, to other people, and to yourself. I design every expedition as a photographer sees and a traveler feels so that if you are behind the lens or simply living the experience, Iceland finds its way into your heart for good.
+          Since then, one such adventure has turned into multiple successful group explorations in the past three years. Every trip is less about traveling; it&apos;s about connecting—to the landscapes, to other people, and to yourself. I design every expedition as a photographer sees and a traveler feels so that if you are behind the lens or simply living the experience, Iceland finds its way into your heart for good.
         </p>
       </motion.div>
     </div>
@@ -46,14 +46,10 @@ const AboutContent: React.FC<{ textSizeClass?: string }> = ({ textSizeClass = "t
 );
 
 const About: React.FC = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
-    // Force component to be considered loaded immediately
-    setIsLoaded(true);
-    setContentVisible(true);
+    // Component is ready immediately
   }, []);
 
   return (
@@ -68,7 +64,6 @@ const About: React.FC = () => {
             sizes="100vw"
             quality={90}
             priority={true}
-            onLoad={() => setIsLoaded(true)}
             onError={() => setImageError(true)}
           />
         

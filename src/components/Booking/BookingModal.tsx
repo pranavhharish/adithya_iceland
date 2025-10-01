@@ -64,9 +64,9 @@ export default function BookingModal() {
       setTimeout(() => {
         window.location.href = '/thank-you';
       }, 3000);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setSuccess(false);
-      setError(err?.message || 'Submission failed');
+      setError(err instanceof Error ? err.message : 'Submission failed');
     } finally {
       setSubmitting(false);
     }

@@ -6,11 +6,9 @@ import Image from 'next/image';
 import { 
   Check, 
   X, 
-  Phone, 
   MessageCircle,
   ChevronDown,
   ChevronUp,
-  Star,
   Calendar,
   Users,
   Camera,
@@ -279,7 +277,7 @@ const PricingPage: React.FC = () => {
                     <div className="bg-iceland-green p-3 rounded-full">
                       <Check className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-iceland-green">What's Included</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-iceland-green">What&apos;s Included</h3>
                   </div>
                   
                   <div className="space-y-3">
@@ -311,7 +309,7 @@ const PricingPage: React.FC = () => {
                     <div className="bg-red-500 p-3 rounded-full">
                       <X className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-red-400">What's Not Included</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-red-400">What&apos;s Not Included</h3>
                   </div>
                   
                   <div className="space-y-3">

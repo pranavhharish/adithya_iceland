@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Pause } from 'lucide-react';
+// Removed unused Play, Pause imports
 
 // Reusable components
 interface HeroImageProps {
@@ -11,17 +11,13 @@ interface HeroImageProps {
   alt: string;
   priority?: boolean;
   className?: string;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
 }
 
 const HeroImage: React.FC<HeroImageProps> = ({ 
   src, 
   alt, 
   priority = false, 
-  className = "md:object-cover object-contain object-center transition-transform duration-[8s] ease-out hover:scale-105",
-  onMouseEnter,
-  onMouseLeave 
+  className = "md:object-cover object-contain object-center transition-transform duration-[8s] ease-out hover:scale-105"
 }) => (
   <Image
     src={src}
@@ -238,9 +234,7 @@ const HeroSection: React.FC = () => {
     };
   }, [isPlaying, isHovered]);
 
-  const handlePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
+  // Removed unused handlePlayPause function
 
   const handleImageClick = (index: number) => {
     setCurrentImageIndex(index);

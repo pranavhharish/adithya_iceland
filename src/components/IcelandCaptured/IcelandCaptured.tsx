@@ -52,7 +52,7 @@ const IcelandCaptured: React.FC = () => {
                     >
                       
                           <p className="text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl text-white leading-relaxed font-light tracking-wide text-center mx-auto">
-                          Discover the land of fire and ice in all its glory as we chase the illusive dance of the Northern Lights & bask in the breathtaking landscapes. On this adventure, each participant in the group will receive a <span className="font-semibold text-iceland-green">professional photography package</span> because the memories are yours to live, and the photos are yours to own. Whether you're behind the camera or just soaking it all in, this expedition is for everyone.</p>
+                          Discover the land of fire and ice in all its glory as we chase the illusive dance of the Northern Lights & bask in the breathtaking landscapes. On this adventure, each participant in the group will receive a <span className="font-semibold text-iceland-green">professional photography package</span> because the memories are yours to live, and the photos are yours to own. Whether you&apos;re behind the camera or just soaking it all in, this expedition is for everyone.</p>
                     </motion.div>
 
                     {/* Main Headline - Center */}
@@ -87,7 +87,7 @@ const IcelandCaptured: React.FC = () => {
                       <p className="text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl text-white leading-relaxed font-sans font-light tracking-wide">
                         As part of this journey, I offer a{' '}
                         <span className="font-semibold text-iceland-green">professional photography package</span>, so you can take home stunning, 
-                        high-resolution images of your experience, whether it's under the Northern lights, driving through rugged landscapes, or at the edge of powerful waterfalls.
+                        high-resolution images of your experience, whether it&apos;s under the Northern lights, driving through rugged landscapes, or at the edge of powerful waterfalls.
                       </p>
                     </motion.div>
 

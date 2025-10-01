@@ -74,19 +74,21 @@ const Navigation: React.FC = () => {
     
     if (item.href === '/') {
       // For Adventure/Home, always go to home page
-      await router.push('/');
+      if (pathname !== '/') {
+        await router.push('/');
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       // For all other pages, use regular navigation
-      router.push(item.href);
+      await router.push(item.href);
     }
   };
 
   return (
     <>
-      {/* Main Navigation */}
+      {/* Main Navigation - Desktop Only */}
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 hidden md:block ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 hidden lg:block ${
           isScrolled 
             ? 'backdrop-blur-md bg-iceland-dark/80 border-b border-white/10 shadow-lg' 
             : 'bg-transparent'
@@ -96,9 +98,9 @@ const Navigation: React.FC = () => {
         transition={{ duration: 0.8 }}
       >
         <div className="w-full px-4 sm:px-6 lg:px-8 container-desktop nav-container-fix">
-          <div className="relative lg:flex lg:justify-between items-center h-20 lg:h-24 w-full max-w-none">
+          <div className="relative lg:flex lg:items-center h-20 lg:h-24 w-full max-w-none">
             {/* Left Navigation Items */}
-            <div className="hidden lg:flex items-center justify-start gap-6 xl:gap-8">
+            <div className="hidden lg:flex items-center justify-start gap-6 xl:gap-8 flex-1">
               {leftNavItems.map((item) => (
                 <button
                   key={item.id}
@@ -128,27 +130,29 @@ const Navigation: React.FC = () => {
             </div>
 
             {/* Centered Logo - Click to go Home */}
-            <motion.button
-              type="button"
-              aria-label="Go to home"
-              onClick={async () => { await router.push('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="flex items-center justify-center group cursor-pointer bg-transparent border-0 p-0"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="relative">
-                <Image
-                  src="/images/ags_logo_white.jpeg"
-                  alt="AGS Logo"
-                  width={220}
-                  height={80}
-                  className="h-18 lg:h-20 xl:h-24 2xl:h-28 w-auto transition-all duration-300 group-hover:brightness-110"
-                  priority
-                />
-              </div>
-            </motion.button>
+            <div className="flex items-center justify-center flex-1">
+              <motion.button
+                type="button"
+                aria-label="Go to home"
+                onClick={async () => { await router.push('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                className="flex items-center justify-center group cursor-pointer bg-transparent border-0 p-0"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="relative">
+                  <Image
+                    src="/images/ags_logo_white.jpeg"
+                    alt="AGS Logo"
+                    width={220}
+                    height={80}
+                    className="h-18 lg:h-20 xl:h-24 2xl:h-28 w-auto transition-all duration-300 group-hover:brightness-110"
+                    priority
+                  />
+                </div>
+              </motion.button>
+            </div>
 
             {/* Right Navigation Items + Social Icons */}
-            <div className="hidden lg:flex items-center justify-end gap-6 xl:gap-8 nav-right-section">
+            <div className="hidden lg:flex items-center justify-end gap-6 xl:gap-8 nav-right-section flex-1">
               {rightNavItems.map((item) => (
                 <button
                   key={item.id}
@@ -211,13 +215,52 @@ const Navigation: React.FC = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setIsMobileMenuOpen(true)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-full bg-black/20 backdrop-blur-lg border border-white/10 text-white hover:text-iceland-green transition-colors"
+      {/* Mobile & Tablet Navigation */}
+      <motion.nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 lg:hidden ${
+          isScrolled 
+            ? 'backdrop-blur-md bg-iceland-dark/80 border-b border-white/10 shadow-lg' 
+            : 'bg-transparent'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <Menu size={24} />
-      </button>
+        <div className="w-full px-4 py-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="p-2 rounded-full bg-black/20 backdrop-blur-lg border border-white/10 text-white hover:text-iceland-green transition-colors"
+            >
+              <Menu size={24} />
+            </button>
+
+            {/* Centered Logo for Mobile */}
+            <motion.button
+              type="button"
+              aria-label="Go to home"
+              onClick={async () => { await router.push('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="flex items-center justify-center group cursor-pointer bg-transparent border-0 p-0"
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="relative">
+                <Image
+                  src="/images/ags_logo_white.jpeg"
+                  alt="AGS Logo"
+                  width={160}
+                  height={60}
+                  className="h-12 w-auto transition-all duration-300 group-hover:brightness-110"
+                  priority
+                />
+              </div>
+            </motion.button>
+
+            {/* Empty div for balance */}
+            <div className="w-10 h-10" />
+          </div>
+        </div>
+      </motion.nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -238,7 +281,7 @@ const Navigation: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="lg:hidden fixed top-0 left-0 z-50 w-[360px] h-full bg-black/40 backdrop-blur-xl border-r border-white/10"
+              className="lg:hidden fixed top-0 left-0 z-50 w-[360px] md:w-[400px] h-full bg-black/40 backdrop-blur-xl border-r border-white/10"
             >
               {/* Close Button */}
               <button
@@ -268,8 +311,9 @@ const Navigation: React.FC = () => {
                           <button
                             onClick={() => handleNavigation(item)}
                             className="h-[68px] w-full flex items-center justify-center border border-white/10 rounded-2xl bg-white/5 transition-all duration-300 hover:bg-iceland-green hover:border-iceland-green group shadow-lg shadow-black/5 backdrop-blur-sm"
+                            type="button"
                           >
-                            <span className="text-lg font-sans font-medium text-white/90">{item.label}</span>
+                            <span className="text-lg font-sans font-medium text-white/90 group-hover:text-white transition-colors duration-300">{item.label}</span>
                           </button>
                         </motion.div>
                       ))}

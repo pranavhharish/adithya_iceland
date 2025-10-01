@@ -4,6 +4,50 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// Reusable content components
+const AboutTitle: React.FC<{ className?: string }> = ({ className = "" }) => (
+  <motion.h1 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.2 }}
+    viewport={{ once: true }}
+    className={`text-2xl font-sans font-bold mb-2 md:mb-6 tracking-wider text-center ${className}`}
+  >
+    <span className="text-gray-300">ABOUT</span>{' '}
+    <span className="text-white">ME</span>
+  </motion.h1>
+);
+
+const AboutContent: React.FC<{ textSizeClass?: string }> = ({ textSizeClass = "text-sm" }) => (
+  <div className="flex justify-center">
+    <div className="w-[90%] space-y-3 sm:space-y-3 md:space-y-6">
+      <motion.div 
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+        viewport={{ once: true }}
+        className="bg-transparent rounded-xl p-3 md:p-8"
+      >
+        <p className={`text-gray-300 leading-relaxed ${textSizeClass} font-sans`}>
+          A road tour of Iceland with my wife and friends, quickly became so much more. As a travel and nature photographer, I set out on a mission to capture the raw beauty of land of fire and ice. Sharing those adventures on Instagram generated interest beyond my dreams, and before too long, adventure tourists, couples, and other photographers began reaching out to share Iceland as I had intimately, personally, and outside the box.
+          <br /><br />
+        </p>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.35 }}
+        viewport={{ once: true }}
+        className="bg-transparent rounded-xl p-3 md:p-8"
+      >
+        <p className={`text-gray-300 leading-relaxed ${textSizeClass} font-sans`}>
+          Since then, one such adventure has turned into multiple successful group explorations in the past three years. Every trip is less about traveling; it's about connecting—to the landscapes, to other people, and to yourself. I design every expedition as a photographer sees and a traveler feels so that if you are behind the lens or simply living the experience, Iceland finds its way into your heart for good.
+        </p>
+      </motion.div>
+    </div>
+  </div>
+);
+
 const About: React.FC = () => {
   return (
     <section id="about" className="relative w-screen overflow-hidden flex justify-center">
@@ -55,44 +99,8 @@ const About: React.FC = () => {
               >
                 <div className="about-text-scroll bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-2xl">
                   <div className="p-6 sm:p-8 md:p-12">
-                    <motion.h1 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      viewport={{ once: true }}
-                      className="text-2xl font-sans font-bold mb-2 md:mb-6 tracking-wider text-center"
-                    >
-                      <span className="text-gray-300">ABOUT</span>{' '}
-                      <span className="text-white">ME</span>
-                    </motion.h1>
-                    <div className="flex justify-center">
-                      <div className="w-[90%] space-y-3 sm:space-y-3 md:space-y-6">
-                        {/* <div className="w-[90%] space-y-3 md:space-y-6"> */}
-                          <motion.div 
-                            initial={{ opacity: 0, y: 12 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.25 }}
-                            viewport={{ once: true }}
-                            className="bg-transparent rounded-xl p-3 md:p-8"
-                          >
-                            <p className="text-gray-300 leading-relaxed text-sm font-sans">
-                              A road tour of Iceland with my wife and friends, quickly became so much more. As a travel and nature photographer, I set out on a mission to capture the raw beauty of land of fire and ice. Sharing those adventures on Instagram generated interest beyond my dreams, and before too long, adventure tourists, couples, and other photographers began reaching out to share Iceland as I hadntimately, personally, and outside the box.
-                              <br /><br /></p>
-                          </motion.div>
-                          <motion.div 
-                            initial={{ opacity: 0, y: 12 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.35 }}
-                            viewport={{ once: true }}
-                            className="bg-transparent rounded-xl p-3 md:p-8"
-                          >
-                            <p className="text-gray-300 leading-relaxed text-sm font-sans">
-                              Since then, one such adventure has turned into multiple successful group explorations in the past three years. Every trip is less about traveling; it's about connecting—to the landscapes, to other people, and to yourself. I design every expedition as a photographer sees and a traveler feels so that if you are behind the lens or simply living the experience, Iceland finds its way into your heart for good.
-                            </p>
-                          </motion.div>
-                        {/* </div> */}
-                      </div>
-                    </div>
+                    <AboutTitle />
+                    <AboutContent />
                   </div>
                 </div>
               </motion.div>
@@ -133,44 +141,8 @@ const About: React.FC = () => {
                 >
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-2xl">
                     <div className="p-4 sm:p-4 md:p-12 lg:p-16 sm:max-h-none md:max-h-none sm:overflow-visible md:overflow-visible">
-                      <motion.h1 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        viewport={{ once: true }}
-                        className="text-2xl sm:text-lg md:text-5xl lg:text-4xl xl:text-5xl font-sans font-bold mb-2 sm:mb-1 md:mb-6 lg:mb-8 tracking-wider text-center sm:text-left lg:text-left"
-                      >
-                        <span className="text-gray-300">ABOUT</span>{' '}
-                        <span className="text-white">ME</span>
-                      </motion.h1>
-
-                      <div className="flex justify-center">
-                        <div className="w-[90%] space-y-3 sm:space-y-3 md:space-y-6">
-                          <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            viewport={{ once: true }}
-                            className="bg-transparent rounded-xl p-3 sm:p-4 md:p-8"
-                          >
-                            <p className="text-gray-300 leading-relaxed text-sm sm:text-xs md:text-lg lg:text-lg xl:text-base font-sans">
-                            A road tour of Iceland with my wife and friends, quickly became so much more. As a travel and nature photographer, I set out on a mission to capture the raw beauty of land of fire and ice. Sharing those adventures on Instagram generated interest beyond my dreams, and before too long, adventure tourists, couples, and other photographers began reaching out to share Iceland as I had intimately, personally, and outside the box.
-                            <br /><br /></p>
-                          </motion.div>
-
-                          <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.5 }}
-                            viewport={{ once: true }}
-                            className="bg-transparent rounded-xl p-3 sm:p-4 md:p-8"
-                          >
-                            <p className="text-gray-300 leading-relaxed text-sm sm:text-xs md:text-lg lg:text-lg xl:text-base font-sans">
-                              Since then, one such adventure has turned into multiple successful group explorations in the past three years. Every trip is less about traveling, it's about connecting to the landscapes, to other people, and to yourself. I design every expedition as a photographer sees and a traveler feels so that if you are behind the lens or simply living the experience, Iceland finds its way into your heart for good.
-                            </p>
-                          </motion.div>
-                        </div>
-                      </div>
+                      <AboutTitle className="text-2xl sm:text-lg md:text-5xl lg:text-4xl xl:text-5xl mb-2 sm:mb-1 md:mb-6 lg:mb-8 text-center sm:text-left lg:text-left" />
+                      <AboutContent textSizeClass="text-sm sm:text-xs md:text-lg lg:text-lg xl:text-base" />
                     </div>
                   </div>
                 </motion.div>

@@ -5,7 +5,15 @@
   --foreground: #F8FAFC;
 }
 
-@theme inline {
+/* @theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-unbounded);
+  --font-display: var(--font-unbounded);
+} */
+
+/* Custom CSS variables for Tailwind */
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-unbounded);

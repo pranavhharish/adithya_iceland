@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -8,9 +8,8 @@ import { motion } from 'framer-motion';
 const AboutTitle: React.FC<{ className?: string }> = ({ className = "" }) => (
   <motion.h1 
     initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.2 }}
-    viewport={{ once: true }}
     className={`text-2xl font-sans font-bold mb-2 md:mb-6 tracking-wider text-center ${className}`}
   >
     <span className="text-gray-300">ABOUT</span>{' '}
@@ -23,9 +22,8 @@ const AboutContent: React.FC<{ textSizeClass?: string }> = ({ textSizeClass = "t
     <div className="w-[90%] space-y-3 sm:space-y-3 md:space-y-6">
       <motion.div 
         initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.25 }}
-        viewport={{ once: true }}
         className="bg-transparent rounded-xl p-3 md:p-8"
       >
         <p className={`text-gray-300 leading-relaxed ${textSizeClass} font-sans`}>
@@ -35,9 +33,8 @@ const AboutContent: React.FC<{ textSizeClass?: string }> = ({ textSizeClass = "t
       </motion.div>
       <motion.div 
         initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.35 }}
-        viewport={{ once: true }}
         className="bg-transparent rounded-xl p-3 md:p-8"
       >
         <p className={`text-gray-300 leading-relaxed ${textSizeClass} font-sans`}>
@@ -49,6 +46,16 @@ const AboutContent: React.FC<{ textSizeClass?: string }> = ({ textSizeClass = "t
 );
 
 const About: React.FC = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
+
+  useEffect(() => {
+    // Force component to be considered loaded immediately
+    setIsLoaded(true);
+    setContentVisible(true);
+  }, []);
+
   return (
     <section id="about" className="relative w-screen overflow-hidden flex justify-center">
       {/* Background Image - Full Width, No Cropping, Centered */}
@@ -60,7 +67,9 @@ const About: React.FC = () => {
             className="object-cover object-center"
             sizes="100vw"
             quality={90}
-            priority={false}
+            priority={true}
+            onLoad={() => setIsLoaded(true)}
+            onError={() => setImageError(true)}
           />
         
         {/* Content Overlaid on Image - Responsive for mobile orientations */}
@@ -71,9 +80,8 @@ const About: React.FC = () => {
               {/* Image Pane */}
               <motion.div 
                 initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
                 className="about-pane about-image-wrapper"
               >
                 <div className="relative about-image-size rounded-xl overflow-hidden border-4 border-white/20 shadow-2xl">
@@ -84,7 +92,8 @@ const About: React.FC = () => {
                     className="object-cover"
                     sizes="90vw"
                     quality={85}
-                    priority={false}
+                    priority={true}
+                    onError={() => setImageError(true)}
                   />
                 </div>
               </motion.div>
@@ -92,9 +101,8 @@ const About: React.FC = () => {
               {/* Text Pane */}
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
                 className="about-pane"
               >
                 <div className="about-text-scroll bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-2xl">
@@ -114,9 +122,8 @@ const About: React.FC = () => {
                 {/* Profile Image */}
                 <motion.div 
                   initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
                   className="flex-shrink-0 flex justify-center"
                 >
                   <div className="relative">
@@ -126,6 +133,8 @@ const About: React.FC = () => {
                         alt="Aditya Subramanian - Adventure Photographer"
                         fill
                         className="object-cover"
+                        priority={true}
+                        onError={() => setImageError(true)}
                       />
                     </div>
                   </div>
@@ -134,9 +143,8 @@ const About: React.FC = () => {
                 {/* Text Content */}
                 <motion.div 
                   initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  viewport={{ once: true }}
                   className="flex-1 w-full text-center sm:text-left lg:text-left min-h-0"
                 >
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-2xl">

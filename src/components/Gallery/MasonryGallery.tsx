@@ -192,7 +192,7 @@ const Lightbox: React.FC<LightboxProps> = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-center text-lg font-medium">{currentImage.caption}</p>
+              <p className="text-center text-lg font-sans font-medium">{currentImage.caption}</p>
               <p className="text-center text-sm text-gray-300 mt-1">
                 {currentIndex + 1} of {images.length}
               </p>
@@ -265,7 +265,7 @@ const MasonryGallery: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 
-              className="text-4xl lg:text-6xl font-bold text-white mb-8"
+              className="text-4xl lg:text-6xl font-sans font-bold text-white mb-8"
             >
               Gallery
             </h2>
@@ -306,7 +306,7 @@ const MasonryGallery: React.FC = () => {
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-end">
                       <div className="p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <p className="font-medium text-sm">{image.caption}</p>
+                        <p className="font-sans font-medium text-sm">{image.caption}</p>
                       </div>
                     </div>
                   </div>

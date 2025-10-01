@@ -50,13 +50,9 @@ const IcelandCaptured: React.FC = () => {
                       transition={{ duration: 1, delay: 0.5 }}
                       viewport={{ once: true }}
                     >
-                      <p className="text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl text-white leading-relaxed font-light tracking-wide text-center mx-auto">
-                        Discover the land of fire and ice in all its glory as we chase the ethereal dance of the Northern Lights & 
-                        bask in the breathtaking landscapes. On this journey, each group member will receive a{' '}
-                        <span className="font-semibold text-iceland-green">professional photography package</span>—because 
-                        the memories are yours to live, and the images are yours to keep. Whether you're behind the lens or simply 
-                        soaking it all in, this expedition is designed for everyone.
-                      </p>
+                      
+                          <p className="text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl text-white leading-relaxed font-light tracking-wide text-center mx-auto">
+                          Discover the land of fire and ice in all its glory as we chase the illusive dance of the Northern Lights & bask in the breathtaking landscapes. On this adventure, each participant in the group will receive a <span className="font-semibold text-iceland-green">professional photography package</span> because the memories are yours to live, and the photos are yours to own. Whether you're behind the camera or just soaking it all in, this expedition is for everyone.</p>
                     </motion.div>
 
                     {/* Main Headline - Center */}
@@ -68,12 +64,12 @@ const IcelandCaptured: React.FC = () => {
                       viewport={{ once: true }}
                     >
                       <div className="space-y-3 md:space-y-6 lg:space-y-8">
-                        <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-display font-bold text-white tracking-tight">
+                        <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-sans font-bold text-white tracking-tight">
                           MORE THAN A ROAD TRIP
                         </h2>
                         <div className="flex items-center justify-center gap-2 md:gap-3 lg:gap-4 pb-4 md:pb-8 lg:pb-12">
-                          <span className="text-base sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-iceland-green">#</span>
-                          <h3 className="text-base sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white tracking-wider">
+                          <span className="text-base sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-sans font-bold text-iceland-green">#</span>
+                          <h3 className="text-base sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-sans font-bold text-white tracking-wider">
                             EPIC PICTURES GUARANTEED
                           </h3>
                         </div>
@@ -88,11 +84,10 @@ const IcelandCaptured: React.FC = () => {
                       transition={{ duration: 1, delay: 1.2 }}
                       viewport={{ once: true }}
                     >
-                      <p className="text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl text-white leading-relaxed font-light tracking-wide">
+                      <p className="text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl text-white leading-relaxed font-sans font-light tracking-wide">
                         As part of this journey, I offer a{' '}
-                        <span className="font-semibold text-iceland-green">professional photography package</span>, ensuring you take 
-                        home stunning, high-quality images of your adventure—whether it's beneath the Northern lights, driving through 
-                        rugged landscapes, or standing at the edge of powerful waterfalls.
+                        <span className="font-semibold text-iceland-green">professional photography package</span>, so you can take home stunning, 
+                        high-resolution images of your experience, whether it's under the Northern lights, driving through rugged landscapes, or at the edge of powerful waterfalls.
                       </p>
                     </motion.div>
 

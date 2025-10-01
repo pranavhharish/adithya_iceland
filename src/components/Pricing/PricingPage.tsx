@@ -108,9 +108,8 @@ const PricingPage: React.FC = () => {
     window.open(`https://wa.me/917373076000?text=${message}`, '_blank');
   };
 
-  const handleBookNowClick = () => {
-    const message = encodeURIComponent("I want to book the Iceland Photography Expedition for March 20-30, 2025. Please confirm availability and next steps.");
-    window.open(`https://wa.me/917373076000?text=${message}`, '_blank');
+  const openBookingModal = (source?: string) => {
+    window.dispatchEvent(new CustomEvent('open-booking', { detail: { source } }));
   };
 
   return (
@@ -131,7 +130,7 @@ const PricingPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900/30 via-transparent to-stone-900/10" />
         </div>
 
-        {/* Hero Content */}
+        {/* Hero Content - Updated for phone landscape */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -142,7 +141,7 @@ const PricingPage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold mb-6 font-playfair leading-tight"
+            className="text-3xl sm:text-xl md:text-4xl lg:text-5xl xl:text-5xl font-sans font-bold mb-6 leading-tight"
           >
             JOIN THE ULTIMATE
             <span className="block bg-gradient-to-r from-amber-600 via-orange-500 to-amber-700 bg-clip-text text-transparent">
@@ -156,13 +155,13 @@ const PricingPage: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mb-8"
           >
-            <div className="text-5xl sm:text-6xl lg:text-7xl font-bold text-amber-600 mb-2">
+            <div className="text-4xl sm:text-lg md:text-4xl lg:text-5xl font-bold text-amber-600 mb-2">
               ₹2,49,000
             </div>
-            <div className="text-xl sm:text-2xl lg:text-3xl text-stone-200 mb-2">
+            <div className="text-lg sm:text-base md:text-xl lg:text-2xl text-stone-200 mb-2">
               ($2999)
             </div>
-            <div className="text-lg sm:text-xl text-stone-300">
+            <div className="text-base sm:text-sm md:text-lg text-stone-300">
               + GST & TCS
             </div>
           </motion.div>
@@ -171,7 +170,7 @@ const PricingPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-xl sm:text-2xl lg:text-3xl font-light mb-12 text-stone-200 tracking-wide"
+            className="text-xl sm:text-lg md:text-2xl lg:text-3xl font-light mb-12 text-stone-200 tracking-wide"
           >
             DESIGNED FOR EXPLORERS, PHOTOGRAPHERS, AND DREAMERS
           </motion.p>
@@ -183,7 +182,7 @@ const PricingPage: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <button
-              onClick={handleBookNowClick}
+              onClick={() => openBookingModal('pricing-hero')}
               className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               BOOK NOW - LIMITED SPOTS
@@ -252,7 +251,7 @@ const PricingPage: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <motion.h2
-                className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
+                className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-white mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={contentInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -368,22 +367,15 @@ const PricingPage: React.FC = () => {
               animate={faqInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <motion.span
-                className="inline-block px-4 py-2 bg-iceland-green/20 text-iceland-green rounded-full text-sm font-medium mb-4"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={faqInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Your Questions Answered
-              </motion.span>
+              
               
               <motion.h2
-                className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
+                className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-white mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={faqInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                FAQ
+                <br /><br />FAQ
               </motion.h2>
               
             </motion.div>
@@ -499,7 +491,7 @@ const PricingPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 font-playfair text-stone-800">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 font-sans text-stone-800">
                 JOIN THE <span className="text-amber-600">ADVENTURE</span>
               </h2>
               
@@ -516,7 +508,7 @@ const PricingPage: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <button
-                  onClick={handleBookNowClick}
+                  onClick={() => openBookingModal('pricing-final')}
                   className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-12 py-5 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
                 >
                   SECURE YOUR SPOT NOW

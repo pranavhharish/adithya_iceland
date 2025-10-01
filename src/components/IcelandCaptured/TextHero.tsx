@@ -17,7 +17,7 @@ const TextHero: React.FC = () => {
               viewport={{ once: true }}
               className="w-full flex justify-center"
             >
-              <h2 className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-light text-white tracking-wider text-center">
+              <h2 className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-sans font-light text-white tracking-wider text-center">
                 MARCH 20<sup className="text-sm sm:text-base md:text-lg lg:text-xl">TH</sup> to 30<sup className="text-sm sm:text-base md:text-lg lg:text-xl">TH</sup>
               </h2>
             </motion.div>
@@ -30,7 +30,7 @@ const TextHero: React.FC = () => {
               viewport={{ once: true }}
               className="w-full flex justify-center"
             >
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-display font-bold text-white tracking-tight text-center">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-sans font-bold text-white tracking-tight text-center">
                 ICELAND, <span className="text-iceland-green">CAPTURED.</span>
               </h1>
             </motion.div>
@@ -43,7 +43,7 @@ const TextHero: React.FC = () => {
               viewport={{ once: true }}
               className="w-full flex justify-center"
             >
-              <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-light text-gray-200 tracking-wide leading-relaxed max-w-4xl xl:max-w-5xl 2xl:max-w-6xl text-center">
+              <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-sans font-light text-gray-200 tracking-wide leading-relaxed max-w-4xl xl:max-w-5xl 2xl:max-w-6xl text-center">
                 EVERY TRAVELER. EVERY MOMENT. EVERY STORY.
               </h3>
             </motion.div>

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Navigation from '@/components/Navigation/Navigation';
 
 // Itinerary data
 const itineraryData = [
@@ -144,7 +143,6 @@ function MobileHighlightCard({ highlight, index }: MobileHighlightCardProps) {
 const ItineraryPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-iceland-dark">
-      <Navigation />
       
       {/* Hero Section with Full Background */}
       <section className="relative w-full">
@@ -205,7 +203,8 @@ const ItineraryPage: React.FC = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="text-lg xl:text-xl text-white tracking-wide">
+                        {/* <div className="text-lg xl:text-xl text-white tracking-wide"> */}
+                        <div className="text-lg xl:text-xl text-white tracking-wide text-left">
                           {item.activities}
                         </div>
                       </div>
@@ -270,11 +269,14 @@ const ItineraryPage: React.FC = () => {
         </div>
 
         {/* Content Section Below Image */}
-        <div className="w-full bg-gradient-to-br from-iceland-dark via-gray-900 to-black py-32 lg:py-48">
-          <div className="flex flex-col items-center justify-center min-h-[60vh] gap-16 lg:gap-20">
-            {/* First Container - Title and Stats */}
-            <div className="w-[90%] md:w-full max-w-7xl">
-              <div className="flex flex-col items-center justify-center text-center space-y-8 lg:space-y-16 bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-md py-16 md:py-20 lg:py-24 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-saturate-[180%]">
+        <div className="w-full bg-gradient-to-br from-iceland-dark via-gray-900 to-black">
+          <div className="flex flex-col items-center justify-center min-h-[80vh]">
+            <div className="h-24"></div>
+            {/* Wrapper Container for both stats containers */}
+            <div className="w-[90%] max-w-none flex flex-col gap-16 lg:gap-20 py-16">
+              {/* First Container - Title and Stats */}
+              <div className="w-full">
+                <div className="flex flex-col items-center justify-center text-center space-y-8 lg:space-y-16 bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-md py-12 sm:py-16 md:py-20 lg:py-24 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-saturate-[180%]">
                 {/* Title */}
                 <div className="w-[90%] md:w-full">
                   <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white tracking-wider text-center">
@@ -308,7 +310,8 @@ const ItineraryPage: React.FC = () => {
                         1
                       </div>
                       <div className="text-sm sm:text-lg lg:text-2xl text-white font-bold tracking-wider">
-                        STUNNING<br/>ROAD TRIP
+                        
+                        ROAD TRIP
                       </div>
                     </div>
                   </div>
@@ -316,9 +319,9 @@ const ItineraryPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Second Container - Description */}
-            <div className="w-[90%] md:w-full max-w-7xl">
-              <div className="flex flex-col items-center justify-center text-center bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-md py-16 md:py-20 lg:py-24 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-saturate-[180%]">
+              {/* Second Container - Description */}
+              <div className="w-full">
+                <div className="flex flex-col items-center justify-center text-center bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-md py-12 sm:py-16 md:py-20 lg:py-24 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-saturate-[180%]">
                 <div className="w-[90%] md:w-full">
                   <p className="text-sm sm:text-base lg:text-xl text-gray-200 leading-relaxed text-center">
                     Iceland is best explored by car, and we will be traveling the entire country along the Ring Road. Prepare to be amazed by 
@@ -327,8 +330,10 @@ const ItineraryPage: React.FC = () => {
                     with 4 people sharing a car for maximum comfort on the road trip.
                   </p>
                 </div>
+                </div>
               </div>
             </div>
+            <div className="h-24"></div>
           </div>
         </div>
       </section>
@@ -353,8 +358,8 @@ const ItineraryPage: React.FC = () => {
             <div className="absolute inset-0 bg-black/30" />
             
             {/* Title Section - Positioned at Top with proper spacing */}
-            <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 pt-8 sm:pt-12 lg:pt-20 xl:pt-32 flex justify-center">
-              <div className="flex flex-col items-center justify-center min-h-[20vh] lg:min-h-[40vh]">
+            <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 pt-2 sm:pt-12 lg:pt-20 xl:pt-32 flex justify-center">
+              <div className="flex flex-col items-center justify-center min-h-[10vh] lg:min-h-[30vh]">
                 <div className="text-center">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white tracking-wider">
                     TRIP HIGHLIGHTS
@@ -367,7 +372,7 @@ const ItineraryPage: React.FC = () => {
             </div>
 
             {/* Highlights Content - Positioned in Center/Lower Area */}
-            <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 flex items-center justify-center pt-4 sm:pt-8 lg:pt-20 xl:pt-32">
+            <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 flex items-center justify-center pt-0 sm:pt-8 lg:pt-20 xl:pt-32">
               <div className="w-full flex flex-col items-center max-w-6xl">
 
                 {/* Highlights Grid - Desktop: Grid, Mobile: Dropdown */}

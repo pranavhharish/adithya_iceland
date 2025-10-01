@@ -19,8 +19,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Playfair Display", "serif"],
+        sans: ["Unbounded", "system-ui", "sans-serif"],
+        display: ["Unbounded", "system-ui", "sans-serif"],
       },
       animation: {
         "aurora": "aurora 20s infinite",

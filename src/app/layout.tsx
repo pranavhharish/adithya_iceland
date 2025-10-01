@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Unbounded } from "next/font/google";
 import Footer from "@/components/Footer/Footer";
+import BookingModal from "@/components/Booking/BookingModal";
 import Navigation from "@/components/Navigation/Navigation";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair",
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
   subsets: ["latin"],
   display: "swap",
 });
@@ -37,12 +32,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="w-full overflow-x-hidden">
       <body
-        className={`${inter.variable} ${playfairDisplay.variable} font-sans antialiased bg-iceland-dark text-white w-full min-h-screen flex flex-col overflow-x-hidden`}
+        className={`${unbounded.variable} font-sans antialiased bg-iceland-dark text-white w-full min-h-screen flex flex-col overflow-x-hidden`}
       >
         <Navigation />
         <main className="flex-1 w-full">
           {children}
         </main>
+        <BookingModal />
         <Footer />
       </body>
     </html>

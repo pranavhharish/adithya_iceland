@@ -103,7 +103,7 @@ const Navigation: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => handleNavigation(item)}
-                  className={`relative px-4 py-2 text-base xl:text-lg font-medium transition-all duration-300 group ${
+                  className={`relative px-4 py-2 text-base xl:text-lg font-sans font-medium transition-all duration-300 group ${
                     pathname === '/' && activeSection === item.id
                       ? 'text-iceland-green'
                       : 'text-white hover:text-iceland-green'
@@ -127,9 +127,12 @@ const Navigation: React.FC = () => {
               ))}
             </div>
 
-            {/* Centered Logo - Made Much Bigger */}
-            <motion.div
-              className="flex items-center justify-center group cursor-pointer"
+            {/* Centered Logo - Click to go Home */}
+            <motion.button
+              type="button"
+              aria-label="Go to home"
+              onClick={async () => { await router.push('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="flex items-center justify-center group cursor-pointer bg-transparent border-0 p-0"
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative">
@@ -142,7 +145,7 @@ const Navigation: React.FC = () => {
                   priority
                 />
               </div>
-            </motion.div>
+            </motion.button>
 
             {/* Right Navigation Items + Social Icons */}
             <div className="hidden lg:flex items-center justify-end gap-6 xl:gap-8 nav-right-section">
@@ -150,7 +153,7 @@ const Navigation: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => handleNavigation(item)}
-                  className={`relative px-4 py-2 text-base xl:text-lg font-medium transition-all duration-300 group ${
+                  className={`relative px-4 py-2 text-base xl:text-lg font-sans font-medium transition-all duration-300 group ${
                     pathname === '/' && activeSection === item.id
                       ? 'text-iceland-green'
                       : 'text-white hover:text-iceland-green'
@@ -189,7 +192,7 @@ const Navigation: React.FC = () => {
                 </motion.button>
                 
                 <motion.a
-                  href="https://instagram.com/adithya_subramaniam"
+                  href="https://www.instagram.com/adithya.ags/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group p-3 text-white hover:text-pink-400 transition-all duration-300 relative rounded-lg"
@@ -266,7 +269,7 @@ const Navigation: React.FC = () => {
                             onClick={() => handleNavigation(item)}
                             className="h-[68px] w-full flex items-center justify-center border border-white/10 rounded-2xl bg-white/5 transition-all duration-300 hover:bg-iceland-green hover:border-iceland-green group shadow-lg shadow-black/5 backdrop-blur-sm"
                           >
-                            <span className="text-lg font-medium text-white/90">{item.label}</span>
+                            <span className="text-lg font-sans font-medium text-white/90">{item.label}</span>
                           </button>
                         </motion.div>
                       ))}
@@ -294,12 +297,12 @@ const Navigation: React.FC = () => {
                             whileTap={{ scale: 0.98 }}
                           >
                             <Phone size={28} className="mb-2 transition-colors duration-300 text-white" />
-                            <span className="text-sm text-white/90 font-medium">Call</span>
+                            <span className="text-sm text-white/90 font-sans font-medium">Call</span>
                           </motion.button>
 
                           {/* Instagram Icon - Right Column */}
                           <motion.a
-                            href="https://instagram.com/adithya_subramaniam"
+                            href="https://www.instagram.com/adithya.ags/?hl=en"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setIsMobileMenuOpen(false)}
@@ -308,7 +311,7 @@ const Navigation: React.FC = () => {
                             whileTap={{ scale: 0.98 }}
                           >
                             <Instagram size={28} className="mb-2 transition-colors duration-300 text-white" />
-                            <span className="text-sm text-white/90 font-medium">Instagram</span>
+                            <span className="text-sm text-white/90 font-sans font-medium">Instagram</span>
                           </motion.a>
                         </div>
                       </div>

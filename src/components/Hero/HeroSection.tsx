@@ -189,7 +189,7 @@ const heroImages: HeroImage[] = [
     location: 'Golden Circle'
   },
   {
-    src: '/images/hero/hero3.jpg',
+    src: '/images/gallery/gallery9.jpg',
     alt: 'Black sand beach with ice chunks in Iceland',
     title: 'Diamond Beach',
     location: 'Jökulsárlón'
